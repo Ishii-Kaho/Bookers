@@ -14,8 +14,8 @@
     <%= @book.body %>
     </p>
 
-    <span><%= link_to "edit", edit_book_path %></span>
-    <span><%= link_to "destroy", book_path %></span>
+    <span><%= link_to "edit", edit_book_path(@book) %></span>
+    <span> <%= link_to "back", books_path(@book) %></span>
 </body>
 
 </DOCTYPE>
