@@ -19,13 +19,13 @@
                 <td class="book_title"><%= book.title %></td>
                 <td class="book_body"><%= book.body %></td>
                 <td>
-                    <a class="edit_269592" href="/books/269692/edit">show</a>
+                    <%= link_to "show", book_path(book) %>
                 </td>
                 <td>
-                    <a class="edit_269592" href="/books/269692/edit">edit</a>
+                    <%= link_to "edit", edit_book_path(book) %>
                 </td>
                 <td>
-                    <a data-confirm="Are you sure?"class="destroy_269592" rel="nofollw" data-method="delete" href="books/26952">Destroy</a>
+                    <%= link_to "destroy", book_path(book), method: :delete, data:{confirm:"Are you sure?"}%>
                 </td>
             </tr>
           <% end %>
