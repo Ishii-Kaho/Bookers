@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href=""
+    <!--<link rel="stylesheet" href="">-->
 </head>
 <body>
     <p id="notice"></p>
@@ -8,10 +8,43 @@
     <table>
         <thead>
             <tr>
-            <th>Title</th>
-            <th>Body</th>
-            <th colspan="3"></th>
+                <th>Title</th>
+                <th>Body</th>
+                <th colspan="3"></th>
             </tr>
         </thead>
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+                <td class="book_title"><%= book.title %></td>
+                <td class="book_body"><%= book.body %></td>
+                <td>
+                    <a class="edit_269592" href="/books/269692/edit">show</a>
+                </td>
+                <td>
+                    <a class="edit_269592" href="/books/269692/edit">edit</a>
+                </td>
+                <td>
+                    <a data-confirm="Are you sure?"class="destroy_269592" rel="nofollw" data-method="delete" href="books/26952">Destroy</a>
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
     </table>
+    <h2>New book</h2>
+    <%= form_with model:@book,url:'/books', local:true do |f| %>
+
+        <div class="field">
+            <label for="book_title">Title</label>
+            <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+           <label for="book_body">Body</label>
+           <text_area class="book_body" name="book[body" id="book_body"></text_area>
+           <%= f.text_area :body %>
+        </div>
+
+        <%= f.submit 'Create Book' %>
+    <% end %>
 </body>

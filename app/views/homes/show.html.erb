@@ -1,2 +1,21 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<DOCTYPE html>
+    <head>
+        <title>WebCampBackendNew</title>
+    </head>
+    
+<body>
+    <p id="notice"></p>
+    <p>
+        <strong>Title:</strong>
+    </p>
+    <%= @book.title %>
+    <p>
+        <strong>Body:</strong>
+    </p>
+    <%= @book.body %>
+    
+    <span><%= link_to "edit", edit_books_path %></span>
+    <span><%= link_to "destroy", books_path %></span>
+</body>
+
+</DOCTYPE>
