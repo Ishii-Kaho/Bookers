@@ -4,14 +4,14 @@
     </head>
 
 <body>
-    <p id="notice"></p>
+    <p class="notice">Book was successfully created.</p>
     <p>
         <strong>Title:</strong>
         <%= @book.title %>
     </p>
     <p>
         <strong>Body:</strong>
-    <%= @book.body %>
+        <%= @book.body %>
     </p>
 
     <span><%= link_to "edit", edit_book_path(@book) %></span>

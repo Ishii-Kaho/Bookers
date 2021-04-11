@@ -91,6 +91,11 @@ h2{
     font-weight: blod;
 }
 
+.error-title{
+    background-color: red;
+    color: white;
+}
+
 form{
     display: block;
     margin-top: 0em;
@@ -104,3 +109,6 @@ label{
     display: block;
 }
 
+.notice{
+    color: green;
+}
