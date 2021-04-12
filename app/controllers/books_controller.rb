@@ -4,7 +4,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @books = Book.order(id: "DESC")
     @book = Book.new
   end
 
@@ -23,7 +22,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
     # 失敗した場合はindexページに戻る
-      @books = Book.all.order(id: "DESC")
+      @books = Book.all
       render :index
     end
   end
