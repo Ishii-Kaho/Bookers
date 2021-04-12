@@ -14,15 +14,16 @@ class BooksController < ApplicationController
 
   def create
     # データを新規登録するためのインスタンス作成
-    book = Book.new(book_params)
+    @book = Book.new(book_params)
     # データをデータベースに保存するためのsaveメソッド実行
-    if book.save
+    if @book.save
     # もし投稿に成功したらBook was successfully created.という通知を出します
       flash[:notice] = 'Book was successfully created.'
     # 詳細ページへリダイレクト
-      redirect_to book_path(book.id)
+      redirect_to book_path(@book.id)
     else
     # 失敗した場合はindexページに戻る
+      @books = Book.all.order(id: "DESC")
       render :index
     end
   end
