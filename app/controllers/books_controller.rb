@@ -17,11 +17,13 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     # データをデータベースに保存するためのsaveメソッド実行
     if book.save
-    # logger.debug("標準出力とログファイルに記録される")
+    # もし投稿に成功したらBook was successfully created.という通知を出します
+      flash[:notice] = 'Book was successfully created.'
     # 詳細ページへリダイレクト
-     redirect_to book_path(book.id)
+      redirect_to book_path(book.id)
     else
-      rander "new"
+    # 失敗した場合はindexページに戻る
+      render :index
     end
   end
 
@@ -32,9 +34,10 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
       if @book.update(book_params)
-        redirect_to book_path(@book), notice: "You have updated book successfully."
+        flash[:notice] = "You have updated book successfully."
+        redirect_to book_path(@book)
       else
-        render "edit"
+        render :edit
       end
   end
 
