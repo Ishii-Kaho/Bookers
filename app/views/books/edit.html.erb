@@ -8,7 +8,6 @@
         </ul>
 <% end %>
 <%= form_with model:@book, local:true do |f| %>
-<!--updateアクションはどこで呼び出されている？-->
     <div class="field">
         <label for="book_title">Title</label>
         <%= f.text_field :title %>
